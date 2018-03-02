@@ -1,0 +1,28 @@
+{
+    "dev": {
+      "name": "BB",
+      "dialect": "sqlite",
+      "storage": ":memory:",
+      "username": "root",
+      "password": ""
+    },
+    "test": {
+      "name": "BB",
+      "dialect": "sqlite",
+      "storage": ":memory:",
+      "username": "root",
+      "password": ""
+    },
+    "prod": {
+      "name": "BB",
+      "dialect": "mysql",
+      "host": "localhost",
+      "port": 3306,
+      "username": "root",
+      "password": "",
+      "pool": {
+        "max": 20,
+        "idle": 30000
+      }
+  }
+}
