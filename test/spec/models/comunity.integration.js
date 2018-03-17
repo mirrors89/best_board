@@ -1,10 +1,9 @@
-import chai from "chai";
+import {expect} from "chai";
 import {sequelize} from "../../../app/src/models/index";
 import {models} from "../../../app/src/models/index";
 import * as moment from "moment";
 
 describe("[Integration] 커뮤니티 모델을 테스트 한다.", () => {
-    const expect = chai.expect;
     const Comunity = models.Comunity;
     moment.locale("ko-KR");
 
@@ -14,7 +13,6 @@ describe("[Integration] 커뮤니티 모델을 테스트 한다.", () => {
         sequelize.sync().then(() => {
             done();
         }).catch((error) => {
-            console.log("error!!!");
             done(error);
         });
     });

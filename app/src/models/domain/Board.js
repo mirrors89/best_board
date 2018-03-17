@@ -2,11 +2,8 @@ module.exports = (sequelize, DataTypes) => {
     const Board = sequelize.define('Board', {
         id: {
             type: DataTypes.INTEGER,
-            //autoIncrement: true
-        },
-        comunity_id : {
-            type: DataTypes.INTEGER,
-            primaryKey: true
+            autoIncrement: true,
+            allowNull: false
         },
         comunity_board_id : {
             type: DataTypes.INTEGER,
@@ -26,9 +23,16 @@ module.exports = (sequelize, DataTypes) => {
         }
     }, {
         timestamps: true,
-        createdAt: "createAt",
-        updatedAt: "updateAt"
+        createdAt: "create_at",
+        updatedAt: "update_at"
     });
 
+    Board.associate = function (models) {
+        models.Board.belongsTo(models.Comunity, {
+            foreignKey: {
+                primaryKey: true
+            }
+        });
+    };
     return Board;
 };

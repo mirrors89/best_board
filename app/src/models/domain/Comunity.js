@@ -3,24 +3,25 @@ module.exports = (sequelize, DataTypes) => {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
-            // autoIncrement: true
         },
         name: {
-            type: DataTypes.INTEGER,
-            primaryKey: true
+            type: DataTypes.STRING,
         },
         web_url: {
-            type: DataTypes.INTEGER,
-            primaryKey: true
+            type: DataTypes.STRING,
         },
         mweb_url: {
             type: DataTypes.STRING,
         }
     }, {
         timestamps: true,
-        createdAt: "createAt",
-        updatedAt: "updateAt"
+        createdAt: "create_at",
+        updatedAt: "update_at"
     });
+    
+    Comunity.associate = function (models) {
+        models.Comunity.hasMany(models.Board);
+    };
 
     return Comunity;
 };

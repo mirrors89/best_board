@@ -16,6 +16,12 @@ class DatabaseConfig {
                 models[model.name] = model;
             });
 
+        Object.keys(models).forEach(modelName => {
+            if (models[modelName].associate) {
+                models[modelName].associate(models);
+            }
+        });
+
         this._sequelize = sequelize;
         this._model = models;
     }
